@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stackiq
+  namespace: stackiq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stackiq
+  template:
+    metadata:
+      labels:
+        app: stackiq
+    spec:
+      containers:
+        - name: stackiq
+          image: JethroRoy/stackiq:latest
+          ports:
+            - containerPort: 5173
